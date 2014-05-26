@@ -33,7 +33,7 @@ $(document).ready(function() {
 });
 
 ZeroClipboard.config({
-    moviePath: '/assets/ZeroClipboard.swf',
+    moviePath: 'assets/ZeroClipboard.swf',
     forceHandCursor: true,
     debug: false,
     hoverClass: "clipboard-hover"
