@@ -59,7 +59,7 @@ gulp.task('scripts', function () {
 
 gulp.task('assets', function () {
     return gulp.src(vendors.assets)
-        .pipe(gulp.dest('dist/assets/'));
+        .pipe(gulp.dest('dist/assets'));
 });
 
 // Compile LESS files
