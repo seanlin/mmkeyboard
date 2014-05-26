@@ -1,0 +1,142 @@
+@import (less) "../../bower_components/normalize.css/normalize.css";
+@import (less) "http://fonts.googleapis.com/earlyaccess/tharlon.css";
+@import (css) "http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css";
+
+body, html {
+	width:100vw;
+	height:100vh;
+	font-family: 'Tharlon', serif;
+
+}
+
+.button-style {
+	position:absolute;
+	background:#fff;
+	border:none;
+
+}
+
+button#clipboard {
+
+	.button-style;
+
+	top:26px;
+	left:52%;
+
+
+}
+
+.clipboard-hover {color:#999}
+
+
+button#erase {
+	.button-style;
+
+	i {
+		&:hover {color:#999;}
+	}
+
+	top:26px;
+	left: 55%;
+}
+
+
+
+p#clipboard-copied {
+	position:absolute;
+	top:30px;
+	left:48%;
+	margin:0;
+	font-size:0.8em;
+}
+
+.container {
+	padding:10px;
+}
+
+
+.top-header {
+	.container;
+
+	border-bottom:1px dotted #ccc;
+
+	h1 {
+		font-size:1.5rem;
+		margin:5px 0;
+	}
+}
+
+.content-area {
+
+
+	
+	height:100%;
+
+	.type-area {
+		float:left;
+		width:60%;
+		border-right:1px dotted #d9d9d9;
+		height:100%;
+
+		textarea#txt {
+			width:100%;
+			padding:15px 130px 15px 15px;
+			height:99%;
+			overflow: auto;
+			resize:none;
+			border:none;
+			box-sizing: border-box;
+			outline:none;
+			font-size:2.5em;
+			color:#666;
+
+			&:focus {
+				color:#000;
+			}
+
+
+
+		
+		}
+
+	}
+
+	.keyboard-area {
+
+		float:left;
+		width:calc(40% - 5px);
+		padding:0 0 0 10px;
+
+		ul.keyboard {
+			padding:10px 0;
+			clear:both;
+			
+			list-style:none;
+
+			li {
+				float:left;
+				margin:0 2px 2px 0;
+
+				input.btn {
+					width:45px;
+					border-radius: 3px;
+					border:1px solid #d9d9d9;
+					background:#f7f7f7;
+					padding:5px;
+					font-size:1.8em;
+					box-sizing: border-box;
+
+					&:hover {
+						border:1px solid #666;
+						background:#5a5;
+					}
+				}
+			}
+		}
+
+	}
+
+
+
+
+}

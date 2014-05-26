@@ -1,0 +1,40 @@
+{
+  "name": "mmkeyboard",
+  "version": "0.0.1",
+  "description": "Myanmar on-screen keyboard",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "event-stream": "^3.1.5",
+    "express": "^4.3.1",
+    "gulp": "^3.6.2",
+    "gulp-changed": "^0.3.0",
+    "gulp-clean": "^0.2.4",
+    "gulp-concat": "^2.2.0",
+    "gulp-csso": "^0.2.8",
+    "gulp-embedlr": "^0.5.2",
+    "gulp-jade": "^0.5.0",
+    "gulp-jshint": "^1.6.1",
+    "gulp-less": "^1.2.3",
+    "gulp-livereload": "^1.5.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.0",
+    "gulp-util": "^2.2.14",
+    "http": "0.0.0",
+    "jshint-stylish": "^0.2.0",
+    "tiny-lr": "^0.0.7"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Sean Lin",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seanlin/mmkeyboard"
+  },
+  "bugs": {
+    "url": "https://github.com/seanlin/mmkeyboard/issues"
+  },
+  "homepage": "https://github.com/seanlin/mmkeyboard"
+}

@@ -1,0 +1,53 @@
+doctype
+html.no-js
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title MM Keyboard
+    meta(name='description', content='Myanmar Textarea with Virtual Keyboard')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='css/styles.css')
+
+  body
+
+    div(class="content-area")
+        div(class="type-area")
+            button(id="clipboard" data-clipboard-target="txt")
+                i(class="fa-clipboard fa fa-2x")
+            button(id="erase")
+                i(class="fa-eraser fa fa-2x")
+            p(id="clipboard-copied" style="display:none")
+                Text Copied
+            textarea(id="txt" placeholder=":) Type in Myanmar using virtual keyboard")
+
+        div(class="keyboard-area")
+            
+            
+            ul(class="keyboard")
+                each val in ['က', 'ခ', 'ဂ', 'ဃ', 'င', 'စ', 'ဆ', 'ဇ', 'ဈ', 'ဉ', 'ည', 'ဋ', 'ဌ', 'ဍ', 'ဎ', 'ဏ', 'တ', 'ထ', 'ဒ', 'ဓ', 'န', 'ပ', 'ဖ', 'ဗ', 'ဘ', 'မ', 'ယ', 'ရ', 'လ', 'ဝ', 'သ', 'ဟ', 'ဠ', 'အ', '၀', '၁', '၂', '၃', '၄', '၅', '၆', '၇', '၈', '၉' ]
+                    li
+                        input(class="btn" type="button" value=val data-value=val)
+
+            ul(class="keyboard")
+                each val in ['ဣ', '\u104c', '\u104d', '\u104e', '\u104f', 'ဤ', 'ဥ', 'ဦ', 'ဧ', 'ဩ', 'ါ', 'ာ', 'ိ', 'ီ', 'ု', 'ူ', '\u103e', 'ေ', 'ဲ', 'း', '\u1036', '\u1037', '\u103A', '\u103d', '\u103b', '\u103c']
+                    li
+                        input(class="btn" type="button" value=val data-value=val)
+                
+
+
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src='/js/vendor.js')
+    script(src='/js/main.js') 
+
+ 
+
+
+    //- Google Analytics
+
+    script.
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-47738867-2');ga('send','pageview');
