@@ -51,7 +51,7 @@ gulp.task('scripts', function () {
 // Copy Vendor Script and Assets
 
 gulp.task('assets', function () {
-        return gulp.src(['./bower_components/**/ZeroClipBoard.swf'], {base" './'})   
+        return gulp.src(['./bower_components/**/ZeroClipBoard.swf'], {base: './'})   
         .pipe(gulp.dest('./dist/vendors'));
 });
 
@@ -128,7 +128,7 @@ gulp.task('watch', function () {
 });
 
 // The dist task (used to store all files that will go to the server)
-gulp.task('dist', ['clean', 'styles', 'templates', 'scripts', 'assets']);
+gulp.task('dist', ['clean', 'styles', 'templates', 'scripts', 'vendors']);
 
 // The default task (called when you run `gulp`)
 gulp.task('default', ['clean', 'styles', 'templates', 'scripts', 'assets', 'vendors', 'lr-server', 'server', 'watch']);
