@@ -51,7 +51,7 @@ gulp.task('scripts', function () {
 // Copy Vendor Script and Assets
 
 gulp.task('assets', function () {
-        return gulp.src(['./bower_components/**/ZeroClipBoard.swf'])   
+        return gulp.src(['./bower_components/**/ZeroClipBoard.swf'], {base" './'})   
         .pipe(gulp.dest('./dist/vendors'));
 });
 
