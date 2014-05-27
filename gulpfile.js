@@ -52,7 +52,7 @@ gulp.task('scripts', function () {
 
 gulp.task('assets', function () {
         return gulp.src(['./bower_components/**/ZeroClipBoard.swf'])   
-        .pipe(gulp.dest('./dist/assets'));
+        .pipe(gulp.dest('./dist/vendors'));
 });
 
 gulp.task('vendors', function () {
