@@ -25,10 +25,8 @@ gulp.task('clean', function () {
 // Vendor Files
 
     var vendors = {
-       js: [ 'bower_components/**/ZeroClipBoard.js'
-                
-           ],
-        assets: ['bower_components/**/ZeroClipBoard.swf']
+        js: [ './bower_components/**/ZeroClipBoard.js'],
+        assets: ['./bower_components/**/ZeroClipBoard.swf']
     };
 
 // Compile JS
@@ -40,16 +38,16 @@ gulp.task('scripts', function () {
 
 
         // Concatenate, minify and copy all JavaScript (except vendor scripts)
-        gulp.src(['src/js/**/*.js'])
+        gulp.src(['./src/js/**/*.js'])
             .pipe(concat('main.js'))
             .pipe(uglify({mangle: false}))
-            .pipe(gulp.dest('dist/js'))
+            .pipe(gulp.dest('./dist/js'))
             .pipe(refresh(lr)),
 
         gulp.src(vendors.js)
             .pipe(concat('vendor.js'))
             .pipe(uglify({mangle: false}))
-            .pipe(gulp.dest('dist/js'))
+            .pipe(gulp.dest('./dist/js'))
             .pipe(refresh(lr))
 
     );
@@ -59,25 +57,25 @@ gulp.task('scripts', function () {
 
 gulp.task('assets', function () {
     return gulp.src(vendors.assets)   
-        .pipe(gulp.dest('dist/assets'));
+        .pipe(gulp.dest('./dist/assets'));
 });
 
 // Compile LESS files
 gulp.task('styles', function () {
-return gulp.src('src/less/styles.less')
+return gulp.src('./src/less/styles.less')
     .pipe(less())
     .pipe(rename('styles.css'))
     .pipe(csso())
-    .pipe(gulp.dest('dist/css'))
+    .pipe(gulp.dest('./dist/css'))
     .pipe(refresh(lr));
 });
 
 gulp.task('templates', function () {
 // Compile Jade files
-return gulp.src('src/jade/index.jade')
+return gulp.src('./src/jade/index.jade')
     .pipe(jade())
     .pipe(rename('index.html'))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('./dist/'))
     .pipe(refresh(lr));
 });
 
@@ -117,13 +115,13 @@ gulp.task('lr-server', function () {
 gulp.task('watch', function () {
 
     // Watch .less files and run tasks if they change
-    gulp.watch('src/less/**/*.less', ['styles']);
+    gulp.watch('./src/less/**/*.less', ['styles']);
 
     // Watch .jade files and run tasks if they change
-    gulp.watch('src/jade/index.jade', ['templates']);
+    gulp.watch('./src/jade/index.jade', ['templates']);
 
     // Watch .js files
-    gulp.watch('src/js/**/*.js', ['scripts']);
+    gulp.watch('./src/js/**/*.js', ['scripts']);
 
 });
 
