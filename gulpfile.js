@@ -24,13 +24,13 @@ gulp.task('clean', function () {
 
 // Vendor Files
 
-  /*  var vendors = {
-       js: [ 'bower_components/zeroclipboard/ZeroClipBoard.js'
+    var vendors = {
+       js: [ 'bower_components/**/ZeroClipBoard.js'
                 
            ],
-        assets: ['bower_components/zeroclipboard/ZeroClipBoard.swf'],
+        assets: ['bower_components/**/ZeroClipBoard.swf']
     };
-*/
+
 // Compile JS
 
 gulp.task('scripts', function () {
@@ -46,7 +46,7 @@ gulp.task('scripts', function () {
             .pipe(gulp.dest('dist/js'))
             .pipe(refresh(lr)),
 
-        gulp.src(['bower_components/zeroclipboard/ZeroClipBoard.js'])
+        gulp.src(vendors.js)
             .pipe(concat('vendor.js'))
             .pipe(uglify({mangle: false}))
             .pipe(gulp.dest('dist/js'))
@@ -58,7 +58,7 @@ gulp.task('scripts', function () {
 // Copy Vendor Assets
 
 gulp.task('assets', function () {
-    return gulp.src(['bower_components/zeroclipboard/ZeroClipBoard.swf'])   
+    return gulp.src(vendors.assets)   
         .pipe(gulp.dest('dist/assets'));
 });
 
