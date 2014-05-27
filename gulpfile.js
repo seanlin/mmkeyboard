@@ -42,22 +42,24 @@ gulp.task('scripts', function () {
             .pipe(concat('main.js'))
             .pipe(uglify({mangle: false}))
             .pipe(gulp.dest('./dist/js'))
-            .pipe(refresh(lr)),
-
-        gulp.src(['./bower_components/**/ZeroClipBoard.js'])
-            .pipe(concat('vendor.js'))
-            .pipe(uglify({mangle: false}))
-            .pipe(gulp.dest('./dist/js'))
             .pipe(refresh(lr))
 
-    );
-});
 
-// Copy Vendor Assets
+    
+)});
+
+// Copy Vendor Script and Assets
 
 gulp.task('assets', function () {
         return gulp.src(['./bower_components/**/ZeroClipBoard.swf'])   
         .pipe(gulp.dest('./dist/assets'));
+});
+
+gulp.task('vendors', function () {
+        return gulp.src(['./bower_components/**/ZeroClipBoard.js'])
+            .pipe(concat('vendor.js'))
+            .pipe(uglify({mangle: false}))
+            .pipe(gulp.dest('./dist/js'));
 });
 
 // Compile LESS files
@@ -126,7 +128,7 @@ gulp.task('watch', function () {
 });
 
 // The dist task (used to store all files that will go to the server)
-gulp.task('dist', ['clean', 'styles', 'templates', 'scripts', 'assets']);
+gulp.task('dist', ['clean', 'styles', 'templates', 'scripts', 'assets', 'vendors']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'styles', 'templates', 'scripts', 'assets', 'lr-server', 'server', 'watch']);
+gulp.task('default', ['clean', 'styles', 'templates', 'scripts', 'assets', 'vendors', 'lr-server', 'server', 'watch']);
