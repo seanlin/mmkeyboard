@@ -52,14 +52,17 @@ gulp.task('scripts', function () {
 
 gulp.task('assets', function () {
         return gulp.src(['./bower_components/**/ZeroClipBoard.swf'])   
+        .on('error', gutil.log)
         .pipe(gulp.dest('./dist/vendors'));
 });
 
 gulp.task('vendors', function () {
         return gulp.src(['./bower_components/**/ZeroClipBoard.js'])
-            .pipe(concat('vendor.js'))
-            .pipe(uglify({mangle: false}))
-            .pipe(gulp.dest('./dist/js'));
+        .on('error', gutil.log)
+        .pipe(concat('vendor.js'))
+        .on('error', gutil.log)
+        .pipe(uglify({mangle: false}))
+        .pipe(gulp.dest('./dist/js'));
 });
 
 // Compile LESS files
