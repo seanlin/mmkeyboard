@@ -10,6 +10,7 @@ var gulp    = require('gulp'),
     csso    = require('gulp-csso'),
     jade    = require('gulp-jade'),
     es      = require('event-stream'),
+    flatten = require('gulp-flatten'),
     embedlr = require('gulp-embedlr'),
     refresh = require('gulp-livereload'),
     express = require('express'),
@@ -22,12 +23,7 @@ gulp.task('clean', function () {
         .pipe(clean({ force: true }));
 });
 
-// Vendor Files
 
-    // var vendors = {
-    //     js: [ './bower_components/**/ZeroClipBoard.js'],
-    //     assets: ['./bower_components/**/ZeroClipBoard.swf']
-    // };
 
 // Compile JS
 
@@ -48,22 +44,7 @@ gulp.task('scripts', function () {
     
 )});
 
-// Copy Vendor Script and Assets
 
-gulp.task('assets', function () {
-        return gulp.src(['./bower_components/**/ZeroClipBoard.swf'])   
-        .on('error', gutil.log)
-        .pipe(gulp.dest('./dist/vendors'));
-});
-
-gulp.task('vendors', function () {
-        return gulp.src(['./bower_components/**/ZeroClipBoard.js'])
-        .on('error', gutil.log)
-        .pipe(concat('vendor.js'))
-        .on('error', gutil.log)
-        .pipe(uglify({mangle: false}))
-        .pipe(gulp.dest('./dist/js'));
-});
 
 // Compile LESS files
 gulp.task('styles', function () {
@@ -82,6 +63,18 @@ return gulp.src('./src/jade/index.jade')
     .pipe(rename('index.html'))
     .pipe(gulp.dest('./dist/'))
     .pipe(refresh(lr));
+});
+
+gulp.task('vendors', function() {
+return gulp.src('bower_components/**/*.min.js')
+    .pipe(flatten())
+    .pipe(uglify({mangle: false}))
+    .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('assets', function() {
+return gulp.src('bower_components/zeroclipboard/ZeroClipboard.swf')
+    .pipe(gulp.dest('dist/assets'));
 });
 
 gulp.task('server', function () {
@@ -134,4 +127,4 @@ gulp.task('watch', function () {
 gulp.task('dist', ['clean', 'styles', 'templates', 'scripts', 'vendors', 'assets']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'styles', 'templates', 'scripts', 'assets', 'vendors', 'lr-server', 'server', 'watch']);
+gulp.task('default', ['clean', 'styles', 'templates', 'scripts', 'vendors', 'assets', 'lr-server', 'server', 'watch']);
