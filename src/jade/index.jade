@@ -1,56 +1,45 @@
 doctype
-html.no-js
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title MM Keyboard
-    meta(name='description', content='Myanmar Textarea with Virtual Keyboard')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='css/styles.css')
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		title MM Keyboard
+		meta(name='description', content='Myanmar Textarea with Virtual Keyboard')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='css/styles.css')
 
-  body
+	body
+		div.content-area
+			div.wrapper
+				div.textarea
+					button(id="clipboard" data-clipboard-target="txt")
+						i(class="glyphicon glyphicon-floppy-disk")
+					button(id="erase")
+						i(class="glyphicon glyphicon-remove")
+					p(id="clipboard-copied" style="display:none")
+						Text Copied
+					textarea(id="txt" class="form-control" placeholder=":) Type in Myanmar using virtual keyboard" rows="12")
 
+				div.keyboard-area
+					ul.keyboard
+						each val in ['\u1000', '\u1001', '\u1002', '\u1003', '\u1004', '\u1005', '\u1006', '\u1007', '\u1008', '\u1009', '\u100A', '\u100B', '\u100C', '\u100D', '\u100E', '\u100F', '\u1010', '\u1011', '\u1012', '\u1013', '\u1014', '\u1015', '\u1016', '\u1017', '\u1018', '\u1019', '\u101A', '\u101B', '\u101C', '\u101D', '\u101E', '\u101F', '\u1020', '\u1021', '\u1040', '\u1041', '\u1042', '\u1043', '\u1044', '\u1045', '\u1046', '\u1047', '\u1048', '\u1049' ]
+							li
+								input(class="btn" type="button" value=val data-value=val)
 
+					ul.keyboard
+						each val in ['\u1023', '\u104c', '\u104d', '\u104e', '\u104F', '\u1024', '\u1025', '\u1026', '\u1027', '\u1029', '\u102B', '\u102C', '\u102D', '\u102E', '\u102f', '\u1030', '\u103e', '\u1031', '\u1032', '\u1038', '\u1036', '\u1037', '\u103A', '\u103d', '\u103b', '\u103c', '\u104A', '\u104B']
+							li
+								input(class="btn" type="button" value=val data-value=val)
 
-
-    div(class="content-area")
-        div(class="type-area")
-            button(id="clipboard" data-clipboard-target="txt")
-                i(class="fa-clipboard fa fa-2x")
-            button(id="erase")
-                i(class="fa-eraser fa fa-2x")
-            p(id="clipboard-copied" style="display:none")
-                Text Copied
-            textarea(id="txt" placeholder=":) Type in Myanmar using virtual keyboard" rows="12")
-
-        div(class="keyboard-area")
-            
-            
-            ul(class="keyboard")
-                each val in ['\u1000', '\u1001', '\u1002', '\u1003', '\u1004', '\u1005', '\u1006', '\u1007', '\u1008', '\u1009', '\u100A', '\u100B', '\u100C', '\u100D', '\u100E', '\u100F', '\u1010', '\u1011', '\u1012', '\u1013', '\u1014', '\u1015', '\u1016', '\u1017', '\u1018', '\u1019', '\u101A', '\u101B', '\u101C', '\u101D', '\u101E', '\u101F', '\u1020', '\u1021', '\u1040', '\u1041', '\u1042', '\u1043', '\u1044', '\u1045', '\u1046', '\u1047', '\u1048', '\u1049' ]
-                    li
-                        input(class="btn" type="button" value=val data-value=val)
-
-            ul(class="keyboard")
-                each val in ['\u1023', '\u104c', '\u104d', '\u104e', '\u104F', '\u1024', '\u1025', '\u1026', '\u1027', '\u1029', '\u102B', '\u102C', '\u102D', '\u102E', '\u102f', '\u1030', '\u103e', '\u1031', '\u1032', '\u1038', '\u1036', '\u1037', '\u103A', '\u103d', '\u103b', '\u103c', '\u104A', '\u104B']
-                    li
-                        input(class="btn" type="button" value=val data-value=val)
-
-            
-
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-    script(src='/js/ZeroClipboard.min.js')
-    script(src='/js/main.js') 
-
- 
+					
+					
 
 
-    //- Google Analytics
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+		script(src='/js/ZeroClipboard.min.js')
+		script(src='/js/main.js') 
 
-    script.
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-47738867-2');ga('send','pageview');
+		script.
+			(function(e,t,n,r,i,s,o){e["GoogleAnalyticsObject"]=i;e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},e[i].l=1*new Date;s=t.createElement(n),o=t.getElementsByTagName(n)[0];s.async=1;s.src=r;o.parentNode.insertBefore(s,o)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-47738867-2","seanl.in");ga("send","pageview")
+
+

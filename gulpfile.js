@@ -58,9 +58,9 @@ return gulp.src('./src/less/styles.less')
 
 gulp.task('templates', function () {
 // Compile Jade files
-return gulp.src('./src/jade/index.jade')
+var YOUR_LOCALS = {};
+return gulp.src('./src/jade/**/*.jade')
     .pipe(jade())
-    .pipe(rename('index.html'))
     .pipe(gulp.dest('./dist/'))
     .pipe(refresh(lr));
 });
@@ -75,6 +75,11 @@ return gulp.src('bower_components/**/*.min.js')
 gulp.task('assets', function() {
 return gulp.src('bower_components/zeroclipboard/ZeroClipboard.swf')
     .pipe(gulp.dest('dist/assets'));
+});
+
+gulp.task('fonts', function() {
+return gulp.src('bower_components/bootstrap/fonts/**')
+    .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('server', function () {
@@ -124,7 +129,7 @@ gulp.task('watch', function () {
 });
 
 // The dist task (used to store all files that will go to the server)
-gulp.task('dist', ['clean', 'styles', 'templates', 'scripts', 'vendors', 'assets']);
+gulp.task('dist', ['clean', 'styles', 'templates', 'scripts', 'vendors', 'assets', 'fonts']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'styles', 'templates', 'scripts', 'vendors', 'assets', 'lr-server', 'server', 'watch']);
+gulp.task('default', ['clean', 'styles', 'templates', 'scripts', 'vendors', 'assets', 'fonts', 'lr-server', 'server', 'watch']);

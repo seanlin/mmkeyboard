@@ -24,13 +24,13 @@ var keyboard = {
 
 };
 
-
-
 $(document).ready(function() {
     keyboard.init();
     $("#txt").focus();
 
 });
+
+// Copy to clipboard
 
 ZeroClipboard.config({
     moviePath: '../assets/ZeroClipboard.swf',
@@ -42,14 +42,11 @@ ZeroClipboard.config({
 
 var txtarea = new ZeroClipboard( $("#clipboard") );
 
-
 txtarea.on( "load", function(txtarea)
 {
-    $('#copied').fadeIn();
 
-    txtarea.on( "complete", function(txtarea, args) {
-        txtarea.setText( args.text );
-        $('#clipboard-copied').fadeIn();
+    txtarea.on( "complete", function() {
+        $('#clipboard-copied').hide().fadeIn('slow');
     } );
 } );
 
